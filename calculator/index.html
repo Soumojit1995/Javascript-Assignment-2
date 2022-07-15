@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Stopwatch in JS</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+    </head>
+
+    <body>
+        <div class="calculator-body">
+            <div class="full-div">
+                <div style="width: 100%;">
+                    <div class="show-str" id="show-str"></div>
+                    <div class="show-str-2" id="answer-area"></div>
+                </div>
+            </div>
+            <div class="full-div">
+                <div class="left-section">
+                <div class="row-section">
+                    <div class="p-2 ac-div">AC</div>
+                    <div class="divide-div operator" data-operator="/">/</div>
+                </div>
+                <div class="row-section">
+                    <div class="value" data-value="7">7</div>
+                    <div class="value" data-value="8">8</div>
+                    <div  class="value"data-value="9">9</div>
+                </div>
+                <div class="row-section">
+                    <div  class="value" data-value="4">4</div>
+                    <div  class="value"data-value="5">5</div>
+                    <div  class="value" data-value="6">6</div>
+                </div>
+                <div class="row-section">
+                    <div  class="value" data-value="1">1</div>
+                    <div  class="value" data-value="2">2</div>
+                    <div  class="value" data-value="3">3</div>
+                </div>
+                <div class="row-section">
+                    <div  class="p-2 value" data-value="0">0</div>
+                    <div  class="value" data-value=".">.</div>
+                </div>
+                
+            </div>
+            <div class="right-section">
+                <div class="operator" data-operator="x">&times;</div>
+                <div class="operator" data-operator="-">-</div>
+                <div class="operator" data-operator="+">+</div>
+                <div class="answer r-2" id="answer">=</div>
+            </div>
+            </div>
+
+            
+        </div>
+        <script src="./script.js"></script>
+        
+    </body>
+
+</html>
