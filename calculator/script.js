@@ -1,12 +1,12 @@
 "use strict";
 
-var input = document.getElementById('show-str'),
+let input = document.getElementById('show-str'),
     answerArea = document.getElementById('answer-area'),
     resultDisplayed = false;
 $('.value').click(function (e) {
 
-    var currentString = input.innerHTML;
-    var lastChar = currentString[currentString.length - 1];
+    let currentString = input.innerHTML;
+    let lastChar = currentString[currentString.length - 1];
 
     // if result is not diplayed, just keep adding
     if (resultDisplayed === false) {
@@ -27,11 +27,11 @@ $('.value').click(function (e) {
 $('.operator').click(function (e) {
     console.log(resultDisplayed)
 
-    var currentString = input.innerHTML;
-    var lastChar = currentString[currentString.length - 1];
+    let currentString = input.innerHTML;
+    let lastChar = currentString[currentString.length - 1];
 
     if ((lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "/")) {
-        var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
+        let newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
         input.innerHTML = newString;
     } else if (currentString.length == 0) {
         console.log("enter a number first");
@@ -47,41 +47,41 @@ $('.operator').click(function (e) {
 $('#answer').click(function () {
     if (resultDisplayed == false) {
 
-        var inputString = input.innerHTML;
+        let inputString = input.innerHTML;
 
-        var numbers = inputString.split(/\+|\-|\×|\//g);
+        let numbers = inputString.split(/\+|\-|\×|\//g);
 
-        var operators = inputString.replace(/[0-9]|\./g, "").split("");
+        let operators = inputString.replace(/[0-9]|\./g, "").split("");
 
-        console.log(inputString);
-        console.log(operators);
-        console.log(numbers);
-        console.log("----------------------------");
+        // console.log(inputString);
+        // console.log(operators);
+        // console.log(numbers);
+        // console.log("----------------------------");
 
 
 
-        var divide = operators.indexOf("/");
+        let divide = operators.indexOf("/");
         while (divide != -1) {
             numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
             operators.splice(divide, 1);
             divide = operators.indexOf("/");
         }
 
-        var multiply = operators.indexOf("×");
+        let multiply = operators.indexOf("×");
         while (multiply != -1) {
             numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
             operators.splice(multiply, 1);
             multiply = operators.indexOf("×");
         }
 
-        var subtract = operators.indexOf("-");
+        let subtract = operators.indexOf("-");
         while (subtract != -1) {
             numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
             operators.splice(subtract, 1);
             subtract = operators.indexOf("-");
         }
 
-        var add = operators.indexOf("+");
+        let add = operators.indexOf("+");
         while (add != -1) {
             
             numbers.splice(add, 2, parseFloat(numbers[add]) + parseFloat(numbers[add + 1]));
