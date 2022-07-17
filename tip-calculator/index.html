@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Tip in JS</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <form class=""></form>
+                        <h1>Tip Calculator</h1>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="tel" class="form-control" id="amount" placeholder="Amount">
+                        </div>
+                        <div class="form-group">
+                            <label for="formControlRange">Tip :</label>
+                            <input type="range" class="" id="formControlRange" min="0" max="100" value="0" style="width: 86%;">
+                            <span id="rangeval">0%</span>
+                        </div>
+                        <hr>
+
+                        <h1>Result</h1>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Tip amount</div>
+                            </div>
+                            <input type="text" class="form-control" id="tip-amount-result" placeholder="0" readonly>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Tip Bill with Tip</div>
+                            </div>
+                            <input type="text" class="form-control" id="total-tip-amount-result" placeholder="0" readonly>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            
+            
+        </div>
+        <script src="script.js"></script>
+        <script>
+            $('#formControlRange').on('input',function(){
+                let rangeValue=$(this).val();
+                let amount=$('#amount').val();
+                $('#rangeval').html(rangeValue+ '% ');
+                if(amount==''||amount==0){
+
+                }else{
+                    let tipAmountResult = (amount*rangeValue)/100;
+                    let totalTipAmountResult =((amount*rangeValue)/100)+parseInt(amount);
+                    if(rangeValue!=0){
+                        $('#tip-amount-result').val(tipAmountResult);
+                        $('#total-tip-amount-result').val(totalTipAmountResult);
+                    }else{
+                        $('#tip-amount-result').val(0)
+                        $('#total-tip-amount-result').val(amount)
+                    }
+                }
+            });
+            $('#amount').on('input',function(){
+                let rangeValue=$('#formControlRange').val();
+                let amount=$(this).val();
+                if(amount==''||amount==0){
+                    $('#tip-amount-result').val(0)
+                    $('#total-tip-amount-result').val(0)
+                }else{
+                    let tipAmountResult = (amount*rangeValue)/100;
+                    let totalTipAmountResult =((amount*rangeValue)/100)+parseInt(amount);
+                    if(rangeValue!=0){
+                        $('#tip-amount-result').val(tipAmountResult);
+                        $('#total-tip-amount-result').val(totalTipAmountResult);
+                    }else{
+                        $('#tip-amount-result').val(0)
+                        $('#total-tip-amount-result').val(amount)
+                    }
+                }
+            });
+        </script>
+
+        
+    </body>
+
+</html>
